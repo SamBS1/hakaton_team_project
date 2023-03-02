@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "name": "Cocaine",
+      "type": "Drugs",
+      "picture": "https://herb-platform-images.imgix.net/wp-content/uploads/2019/08/05095846/chronic-snoop.jpg",
+      "price": "20$",
+      "description": "sahdoiugfds",
+      "id": 1
+    }
+  ]
+}
