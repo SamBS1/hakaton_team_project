@@ -25,11 +25,13 @@ const ProductCard = ({ item, checkProductInCart }) => {
     <div className='Container'>
 
     <div className='card-div'>
-      <Grid container
-                spacing={2}
-                direction="row"
-                justify="flex-start"
-                alignItems="flex-start">
+      <Grid 
+      // container
+                // spacing={2}
+                // direction="row"
+                // justify="flex-start"
+                // alignItems="flex-start"
+                >
 
   
       <Card sx={{ maxWidth: 345 }} className="post-card">
