@@ -1,0 +1,14 @@
+.Container {
+    display: flex !important;
+justify-content: space-between !important;
+}
+
+.card-div{
+    width: 300px;
+    height: 100px;
+    margin-left: 100px;
+}
+
+.post-pic{
+    height: 300px !important;
+}

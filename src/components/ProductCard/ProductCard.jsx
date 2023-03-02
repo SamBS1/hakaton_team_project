@@ -10,10 +10,10 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 // import '../../../styles/ProductCard.css'
 // import { useCart } from '../../../contexts/CartContextProvider';
-import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
-import IconButton from '@mui/material/IconButton';
+// import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+// import IconButton from '@mui/material/IconButton';
 // import { makeStyles } from '@material-ui/core/styles'
-
+import '../../styles/ProductCard.css'
 
 
 const ProductCard = ({ item, checkProductInCart }) => {
@@ -22,6 +22,8 @@ const ProductCard = ({ item, checkProductInCart }) => {
 //   const { addProductToCart } = useCart()
 
   return (
+    <div className='Container'>
+
     <div className='card-div'>
       <Grid container
                 spacing={2}
@@ -40,9 +42,8 @@ const ProductCard = ({ item, checkProductInCart }) => {
               {item.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-               {item.id} <br/>
               <b>BTC: </b> {item.price} <br/>
-              <b>Description:</b> {item.description}
+
             </Typography>
           </CardContent>
           <CardActions>
@@ -57,6 +58,7 @@ const ProductCard = ({ item, checkProductInCart }) => {
  
             </Grid>
     </div>
+            </div>
   )
 }
 

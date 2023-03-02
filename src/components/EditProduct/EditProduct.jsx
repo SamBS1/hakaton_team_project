@@ -14,7 +14,7 @@ const EditProduct = () => {
   useEffect(() => {
     getProductDetails(id)
   }, [])
-
+  
   useEffect(() => {
     setProduct(productDetails)
   }, [productDetails])
@@ -41,11 +41,26 @@ const handleInp = e => {
       {product? (
         <div>
       <h2>Edit Product</h2>
+      <p>
+        Name:
       <input type="text" placeholder='Title' name='name' onChange={handleInp} value={product.name}/><br/>
+      </p>
+      <p>
+        Description:
       <input type="text" placeholder='Description' name='description' onChange={handleInp} value={product.description}/><br/>
+      </p>
+      <p>
+        Price:
       <input type="text" placeholder='Price' name='price' onChange={handleInp} value={product.price}/><br/>
+      </p>
+      <p>
+        Picture:
       <input type="text" placeholder='Picture' name='picture' onChange={handleInp} value={product.picture}/><br/>
+      </p>
+      <p>
+        Type:
       <input type="text" placeholder='Type' name='type' onChange={handleInp} value={product.type}/><br/>
+      </p>
 
       <button onClick={() => {
       saveEditedProduct(product) 
