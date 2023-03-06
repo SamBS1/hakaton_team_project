@@ -73,22 +73,24 @@ const ProductCard = ({ item, checkProductInCart }) => {
     const { deleteProduct } = useProducts()
 
   return (
-    <div className='Container'>
+    // <div className='Container'>
         <div className='card'>
             <div className='img-div'>
             <img src={item.picture} alt="" className='card-pic'/>
             </div>
             <div className='text-div'>
-              {item.name}
-              {item.description}
+              <b> {item.name}</b>
             </div>
+              {item.description} <br />
+
+              Price: {item.price}
             <div className='btn-group'>
             <button size="small" onClick={() => navigate(`/details/${item.id}`)}>Details</button>
             <button size="small"onClick={() => navigate(`/edit/${item.id}`)}>Edit</button>
             <button size="small"onClick={() => deleteProduct(item.id)}>Delete</button>
             </div>
         </div>
-    </div>    
+    // </div>    
 
   );
 }

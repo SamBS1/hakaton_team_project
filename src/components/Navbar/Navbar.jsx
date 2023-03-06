@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="static" style={{ background: '#000336' }}>
+    <AppBar position="static" style={{ background: '#000223' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <GrassIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
