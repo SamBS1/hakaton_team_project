@@ -1,7 +1,9 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import axios, { all } from 'axios';
+import React, { createContext, useContext, useReducer, useState } from 'react';
+import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ACTIONS, JSON_API_PRODUCTS } from '../helpers/consts';
+// import ProductCard from '../components/ProductCard/ProductCard';
+// import ProductsList from '../components/ProductList/ProductList';
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -29,6 +31,8 @@ const ProductContextProvider = ({ children }) => {
     const location = useLocation();
 
     const getProducts = async () => {
+        // console.log(window.location);
+        // console.log(window.location.search);
         const { data } = await axios(`${JSON_API_PRODUCTS}/${window.location.search}`);
         dispatch({
             type: ACTIONS.GET_PRODUCTS,
@@ -37,45 +41,57 @@ const ProductContextProvider = ({ children }) => {
     };
 
     const addProduct = async (newProduct) => {
-        await axios.post(JSON_API_PRODUCTS, newProduct)
-        getProducts()
-    }
-
-    const getProductDetails = async (id) => {
-        const {data} = await axios(`${JSON_API_PRODUCTS}/${id}`)
-        dispatch({
-            type: ACTIONS.GET_PRODUCT_DETAILS,
-            payload: null
-        })
-        dispatch({
-            type: ACTIONS.GET_PRODUCT_DETAILS,
-            payload: data
-        })
-    }
-
-    const saveEditedProduct = async (newProduct) => {
-        await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct)
+        await axios.post(JSON_API_PRODUCTS, newProduct);
         getProducts();
     };
 
-    const deleteProduct = async(id)=> {
-        await axios.delete(`${JSON_API_PRODUCTS}/${id}`)
-        getProducts()
-    }
+    const getProductDetails = async (id) => {
+        dispatch({
+            type: ACTIONS.GET_PRODUCT_DETAILS,
+            payload: null
+        });
+        const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+        dispatch({
+            type: ACTIONS.GET_PRODUCT_DETAILS,
+            payload: data
+        });
+    };
+
+    const saveEditedProduct = async (newProduct) => {
+        await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
+        getProducts();
+    };
+
+    const deleteProduct = async (id) => {
+        await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
+        getProducts();
+    };
+
+    // const [category, setCategory] = useState('all')
+
+    // const filteredCategory = ProductsList.filter((product) =>{
+    //     if(category === 'drug'){
+    //         return 
+    //     }
+    // })
+
+    // const filter = (filterValue) => {
+    //     setCategory(filterValue)    
+    // };
 
     const fetchByParams = (query, value) => {
-        const search = new URLSearchParams(location.search)
+        const search = new URLSearchParams(location.search);
 
-        if(value === 'all'){
-            search.delete(query)
-        }else{
-            search.set(query, value)
-        }
+        if(value === 'all') {
+            search.delete(query);
+        } else { 
+            search.set(query, value);
+        };
 
         const url = `${location.pathname}?${search.toString()}`
 
-        navigate(url)
-    }
+        navigate(url);
+    };
 
     const values = {
         products: state.products,
@@ -86,7 +102,7 @@ const ProductContextProvider = ({ children }) => {
         getProductDetails,
         saveEditedProduct,
         deleteProduct,
-        fetchByParams,
+        fetchByParams
     };
 
   return (

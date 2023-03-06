@@ -4,6 +4,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import { Pagination } from '@mui/material';
 import ProductList from '../../styles/ProductList.css'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import FilterProduct from '../FilterProduct/FilterProduct'
 
 const ProductsList = ({changeSideBarStatus, page, setPage}) =>  {
   const { products, getProducts } = useProducts();
@@ -51,6 +52,7 @@ const ProductsList = ({changeSideBarStatus, page, setPage}) =>  {
         <ThemeProvider theme={theme}>
             <Pagination count={count} page={page} onChange={handlePage} className='pagination' color="primary"/>
         </ThemeProvider>
+        <FilterProduct/>
     </div>
   )
 }
