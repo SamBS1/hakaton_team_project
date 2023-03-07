@@ -79,19 +79,19 @@ const ProductContextProvider = ({ children }) => {
     //     setCategory(filterValue)    
     // };
 
-    const fetchByParams = (query, value) => {
-        const search = new URLSearchParams(location.search);
+    // const fetchByParams = (query, value) => {
+    //     const search = new URLSearchParams(location.search);
 
-        if(value === 'all') {
-            search.delete(query);
-        } else { 
-            search.set(query, value);
-        };
+    //     if(value === 'all') {
+    //         search.delete(query);
+    //     } else { 
+    //         search.set(query, value);
+    //     };
 
-        const url = `${location.pathname}?${search.toString()}`
+    //     const url = `${location.pathname}?${search.toString()}`
 
-        navigate(url);
-    };
+    //     navigate(url);
+    // };
 
     const values = {
         products: state.products,
@@ -102,7 +102,7 @@ const ProductContextProvider = ({ children }) => {
         getProductDetails,
         saveEditedProduct,
         deleteProduct,
-        fetchByParams
+        // fetchByParams
     };
 
   return (

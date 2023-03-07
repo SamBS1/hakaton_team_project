@@ -2,7 +2,8 @@ import React,{useState} from 'react';
 import ProductsList from '../components/ProductList/ProductList';
 // import ProductSideBar from '../components/products/ProductSideBar/ProductSideBar'
 import '../styles/ProductsPage.css'
-
+import '../components/ProductSearch/ProductSearch'
+import ProductSearch from '../components/ProductSearch/ProductSearch';
 
 const ProductsPage = () => {
   // const [isSideBar, setIsSideBar] = useState(true);
@@ -15,6 +16,7 @@ const ProductsPage = () => {
 
   return (
     <div className='productsPage'>
+      <ProductSearch/>
     {/* <ProductSideBar isSideBar={isSideBar} setPage={setPage}/> */}
       <ProductsList  page={page}  setPage={setPage}/>
       
