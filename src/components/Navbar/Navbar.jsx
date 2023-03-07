@@ -12,12 +12,16 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import GrassIcon from "@mui/icons-material/Grass";
+
 //custom
 import Badge from "@mui/material/Badge";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+import ClassIcon from "@mui/icons-material/Class";
+import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Navbar.css";
 import { useCart } from "../../contexts/CartContextProvider";
+import FilterProduct from "../FilterProduct/FilterProduct";
 
 const pages = [
   {
@@ -106,6 +110,24 @@ function ResponsiveAppBar() {
                 <ShoppingCartTwoToneIcon />
               </Badge>
             </IconButton>
+
+            <Button
+              size="large"
+              color="inherit"
+              onClick={() => navigate("/category")}
+            >
+              <Badge color="error"></Badge>
+              <ClassIcon />
+            </Button>
+
+            <Button
+              size="large"
+              color="inherit"
+              onClick={() => navigate("/search")}
+            >
+              <Badge color="error"></Badge>
+              <ContentPasteSearchIcon />
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -168,19 +190,6 @@ function ResponsiveAppBar() {
           >
             CHAIKA-NARCO-SHOP
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.type}
-                onClick={() => {
-                  navigate(page.path);
-                }}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page.type}
-              </Button>
-            ))}
-          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

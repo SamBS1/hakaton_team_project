@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 
 // import Card from '@mui/material/Card';
@@ -95,7 +95,7 @@ const ProductCard = ({ item }) => {
           Delete
         </button>
         <IconButton size="small" onClick={() => addProductToCart(item)}>
-          <AddShoppingCartOutlinedIcon
+          <ShoppingCartIcon
             color={checkProductInCart(item.id) ? "primary" : ""}
           />
         </IconButton>

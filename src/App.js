@@ -5,6 +5,7 @@ import MainRoutes from "./MainRoutes";
 import Footer from "./pages/Footer";
 import CartContextProvider from "./contexts/CartContextProvider";
 const App = () => {
+
   return (
     <>
       <CartContextProvider>
