@@ -1,18 +1,21 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import ProductContextProvider from './contexts/ProductContextProvider'
-import MainRoutes from './MainRoutes'
-
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import ProductContextProvider from "./contexts/ProductContextProvider";
+import MainRoutes from "./MainRoutes";
+import Footer from "./pages/Footer";
+import CartContextProvider from "./contexts/CartContextProvider";
 const App = () => {
   return (
     <>
-    <ProductContextProvider>
-
-      <Navbar/>
-      <MainRoutes/>
-    </ProductContextProvider>
+      <CartContextProvider>
+        <ProductContextProvider>
+          <Navbar />
+          <MainRoutes />
+          <Footer />
+        </ProductContextProvider>
+      </CartContextProvider>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

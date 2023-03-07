@@ -3,6 +3,21 @@
     justify-content: center;
 } */
 
-body{
-    background-color:   #000336
+body {
+  background-color: #000336;
+}
+
+.page-footer {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -180px;
+}
+
+/* .text-uppercase {
+  height: 150px;
+} */
+
+.footer-copyright {
+  height: 180px;
 }

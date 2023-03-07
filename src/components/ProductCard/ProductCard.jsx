@@ -1,6 +1,9 @@
-// import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useProducts } from '../../contexts/ProductContextProvider';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useProducts } from "../../contexts/ProductContextProvider";
+import { useCart } from "../../contexts/CartContextProvider";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import IconButton from "@mui/material/IconButton";
 
 // import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
@@ -14,8 +17,7 @@ import { useProducts } from '../../contexts/ProductContextProvider';
 // // import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 // // import IconButton from '@mui/material/IconButton';
 // // import { makeStyles } from '@material-ui/core/styles'
-import '../../styles/ProductCard.css'
-
+import "../../styles/ProductCard.css";
 
 // const ProductCard = ({ item, checkProductInCart }) => {
 //   const navigate = useNavigate()
@@ -34,7 +36,6 @@ import '../../styles/ProductCard.css'
 //                 // alignItems="flex-start"
 //                 > */}
 
-  
 //       <Card sx={{ maxWidth: 345 }} className="post-card">
 //           <CardMedia
 //             sx={{ height: 140 }}
@@ -58,7 +59,7 @@ import '../../styles/ProductCard.css'
 //             </IconButton> */}
 //           </CardActions>
 //         </Card>
- 
+
 //             {/* </Grid> */}
 //     </div>
 //             </div>
@@ -67,33 +68,41 @@ import '../../styles/ProductCard.css'
 
 // export default ProductCard
 
-
-const ProductCard = ({ item, checkProductInCart }) => {
-    const navigate = useNavigate()
-    const { deleteProduct } = useProducts()
+const ProductCard = ({ item }) => {
+  const navigate = useNavigate();
+  const { deleteProduct } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart();
 
   return (
     // <div className='Container'>
-        <div className='card'>
-            <div className='img-div'>
-            <img src={item.picture} alt="" className='card-pic'/>
-            </div>
-            <div className='text-div'>
-              <b> {item.name}</b>
-            </div>
-              {item.description} <br />
-
-              Price: {item.price}
-            <div className='btn-group'>
-            <button size="small" onClick={() => navigate(`/details/${item.id}`)}>Details</button>
-            <button size="small"onClick={() => navigate(`/edit/${item.id}`)}>Edit</button>
-            <button size="small"onClick={() => deleteProduct(item.id)}>Delete</button>
-            </div>
-        </div>
-    // </div>    
-
+    <div className="card">
+      <div className="img-div">
+        <img src={item.picture} alt="" className="card-pic" />
+      </div>
+      <div className="text-div">
+        <b> {item.name}</b>
+      </div>
+      {item.description} <br />
+      Price: {item.price}
+      <div className="btn-group">
+        <button size="small" onClick={() => navigate(`/details/${item.id}`)}>
+          Details
+        </button>
+        <button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+          Edit
+        </button>
+        <button size="small" onClick={() => deleteProduct(item.id)}>
+          Delete
+        </button>
+        <IconButton size="small" onClick={() => addProductToCart(item)}>
+          <AddShoppingCartOutlinedIcon
+            color={checkProductInCart(item.id) ? "primary" : ""}
+          />
+        </IconButton>
+      </div>
+    </div>
+    // </div>
   );
-}
+};
 
-
-export default ProductCard
+export default ProductCard;

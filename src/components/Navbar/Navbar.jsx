@@ -1,41 +1,43 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import GrassIcon from '@mui/icons-material/Grass';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import GrassIcon from "@mui/icons-material/Grass";
 //custom
-import { useNavigate } from 'react-router-dom';
-import '../../styles/Navbar.css'
+import Badge from "@mui/material/Badge";
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+import { useNavigate } from "react-router-dom";
+import "../../styles/Navbar.css";
+import { useCart } from "../../contexts/CartContextProvider";
 
 const pages = [
   {
-    type: 'Products',
-    path: '/products'
+    type: "Products",
+    path: "/products",
   },
   {
-    type: 'Admin',
-    path: '/admin'
-  }
+    type: "Admin",
+    path: "/admin",
+  },
 ];
 const settings = [
   {
-    type: 'Register',
-    path: '/register'
+    type: "Register",
+    path: "/register",
   },
   {
-    type: 'Login',
-    path: '/login'
+    type: "Login",
+    path: "/login",
   },
-
 ];
 
 function ResponsiveAppBar() {
@@ -59,32 +61,54 @@ function ResponsiveAppBar() {
 
   //custom
   const navigate = useNavigate();
+  const { cartLength } = useCart();
 
   return (
-    <AppBar position="static" style={{ background: '#000223' }}>
+    <AppBar position="static" style={{ background: "#000223" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <GrassIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <GrassIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              cursor: 'pointer'
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+              cursor: "pointer",
             }}
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
           >
             CHAIKA-NARCO-SHOP
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.type}
+                onClick={() => navigate(page.path)}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {page.type}
+              </Button>
+            ))}
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={() => navigate("/cart")}
+            >
+              <Badge badgeContent={cartLength} color="error">
+                <ShoppingCartTwoToneIcon />
+              </Badge>
+            </IconButton>
+          </Box>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -99,52 +123,59 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page.type} onClick={handleCloseNavMenu}>
-                  <Typography onClick={() => navigate(page.path)} textAlign="center">{page.type}</Typography>
+                  <Typography
+                    onClick={() => navigate(page.path)}
+                    textAlign="center"
+                  >
+                    {page.type}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <GrassIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <GrassIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             CHAIKA-NARCO-SHOP
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page.type}
-                onClick={() => {navigate(page.path)}}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                onClick={() => {
+                  navigate(page.path);
+                }}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page.type}
               </Button>
@@ -158,24 +189,29 @@ function ResponsiveAppBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.type} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={() => navigate(setting.path)}>{setting.type}</Typography>
+                  <Typography
+                    textAlign="center"
+                    onClick={() => navigate(setting.path)}
+                  >
+                    {setting.type}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -183,7 +219,6 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
-
   );
 }
 export default ResponsiveAppBar;
