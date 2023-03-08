@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useProducts } from '../../contexts/ProductContextProvider'
 import { useNavigate, useParams } from 'react-router-dom'
+import '../../styles/EditProduct.css'
 
 const EditProduct = () => {
   const { getProductDetails, productDetails, saveEditedProduct} = useProducts()
@@ -37,14 +38,15 @@ const handleInp = e => {
 
   return (
 
-    <>
+    <div  className='div'>
       {product? (
-        <div>
-      <h2>Edit Product</h2>
+        <div className='div3'>
+        <div className='div2'>
       <p>
         Name:
       <input type="text" placeholder='Title' name='name' onChange={handleInp} value={product.name}/><br/>
       </p>
+      
       <p>
         Description:
       <input type="text" placeholder='Description' name='description' onChange={handleInp} value={product.description}/><br/>
@@ -62,17 +64,20 @@ const handleInp = e => {
       <input type="text" placeholder='Type' name='type' onChange={handleInp} value={product.type}/><br/>
       </p>
 
+    </div>
+    <div className='btndiv'>
       <button onClick={() => {
-      saveEditedProduct(product) 
-      navigate('/products')
+        saveEditedProduct(product) 
+        navigate('/products')
       }}>
         Save Changes
       </button>
-    </div>
+        </div>
+        </div>
       ):(
         <h3>loading...</h3>
       )}
-    </>
+    </div>
 
     
   )

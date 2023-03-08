@@ -1,0 +1,23 @@
+.div22{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+}
+ 
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    margin-left: 150px;
+    
+}
+
+ .btndiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+ }
