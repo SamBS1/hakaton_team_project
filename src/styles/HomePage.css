@@ -11,6 +11,7 @@ body {
   background-color: #9496bf;
 }
 
+
 .page-footer {
   height: auto !important;
   height: 10%;
@@ -38,3 +39,59 @@ footer {
 .row {
   height: 100px;
 }
+
+
+
+.img1PL{
+    height: 1080px;
+
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.h1{
+    margin-top: 100px;
+    margin-left: 200px;
+    font-size: 50px;
+
+}
+.h2{
+    margin-top: -10px;
+    margin-left: 100px;
+    width: 80%;
+    font-size: 25px; 
+    
+}
+
+.png-div{
+    margin-top: 20px;
+    margin-right: 200px;
+
+
+
+}
+
+.pic{
+    width: 500px;
+    height: 500px;
+}
+
+.textdiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    margin-top: 30px;
+    margin-left: 40%;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: 	#FFF7E0;
+    color: #9FA0B2;
+}
+

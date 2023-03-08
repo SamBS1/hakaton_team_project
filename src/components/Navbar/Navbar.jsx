@@ -88,7 +88,7 @@ function ResponsiveAppBar() {
             }}
             onClick={() => navigate("/")}
           >
-            CHAIKA-NARCO-SHOP
+            Тысяча и одна мелочь
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

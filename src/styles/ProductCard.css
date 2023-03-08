@@ -26,15 +26,15 @@ margin-top: 10vh;
 
 } */
 
-.card {
-  width: 250px;
-  height: 400px;
-  background-color: #e0ffff;
-  margin: 10px;
-  position: relative;
-  text-align: center;
-  border-radius: 5px;
-  color: #000223;
+.card{
+    width: 250px;
+    height: 400px;
+    background-color: #e0ffff;
+    margin: 10px;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    color: #000223;
 }
 
 /* .img-div{
@@ -66,12 +66,12 @@ margin-top: 10vh;
   margin-left: 42px;
 }
 
-button {
-  background-color: #000223;
-  border-radius: 3px;
-  border: none;
-  color: white;
-  margin-left: 6px;
+button{
+    background-color: #000223;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin-left: 6px;
 }
 
 .card-div {

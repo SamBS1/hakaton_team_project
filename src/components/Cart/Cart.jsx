@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,10 +12,30 @@ import ClearTwoToneIcon from "@mui/icons-material/ClearTwoTone";
 //custom
 import { useCart } from "../../contexts/CartContextProvider";
 import { Button, TextField, Typography } from "@mui/material";
+import '../../styles/Cart.css'
+import Box from '@mui/material/Box';  
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function Cart() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const { getCart, cart, changeProductCount, deleteProductFromCart } =
-    useCart();
+  useCart();
+  
+  
 
   React.useEffect(() => {
     getCart();
@@ -72,8 +92,46 @@ export default function Cart() {
       </Table>
       <Typography variant="h6" components="div">
         Total Price: {cart?.totalPrice}
-        <Button onClick={cartCleaner}>BUY NOW</Button>
+        <Button onClick={handleOpen} className="btn-modal">BUY NOW</Button>
       </Typography>
+      <div className="Modal">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Payment
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
+        <p>
+          Name on card: 
+      <input type="text" placeholder='John Doe' name='name' /><br/>
+        </p>
+      
+      <p>
+        Credit card number: 
+      <input type="number" placeholder='1111-2222-3333-4444' name='description' /><br/>
+      </p>
+      <p>
+        Exp Date: 
+      <input type="number" placeholder='01/01' name='price' />
+      </p>
+      <p>
+        CVV: 
+      <input type="number" placeholder='123' name='price' /> 
+      </p>
+      <br/>
+      <button>Continue</button>
+
+          </Typography>
+        </Box>
+      </Modal>
+        </div>
     </TableContainer>
   );
 }
