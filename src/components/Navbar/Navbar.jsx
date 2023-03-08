@@ -16,12 +16,12 @@ import GrassIcon from "@mui/icons-material/Grass";
 //custom
 import Badge from "@mui/material/Badge";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
-import ClassIcon from "@mui/icons-material/Class";
-import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
+// import ClassIcon from "@mui/icons-material/Class";
+// import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Navbar.css";
 import { useCart } from "../../contexts/CartContextProvider";
-import FilterProduct from "../FilterProduct/FilterProduct";
+// import FilterProduct from "../FilterProduct/FilterProduct";
 
 const pages = [
   {
@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
                 <ShoppingCartTwoToneIcon />
               </Badge>
             </IconButton>
-
+            {/* 
             <Button
               size="large"
               color="inherit"
@@ -127,7 +127,7 @@ function ResponsiveAppBar() {
             >
               <Badge color="error"></Badge>
               <ContentPasteSearchIcon />
-            </Button>
+            </Button> */}
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

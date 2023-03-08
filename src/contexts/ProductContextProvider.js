@@ -69,16 +69,16 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
   };
 
-  // const [category, setCategory] = useState('all')
+  // const [category, setCategory] = useState("all");
 
-  // const filteredCategory = ProductsList.filter((product) =>{
-  //     if(category === 'drug'){
-  //         return
-  //     }
-  // })
+  // const filteredCategory = ProductsList.filter((product) => {
+  //   if (category === "drug") {
+  //     return;
+  //   }
+  // });
 
   // const filter = (filterValue) => {
-  //     setCategory(filterValue)
+  //   setCategory(filterValue);
   // };
 
   const onFilterValueChanged = (query, value) => {

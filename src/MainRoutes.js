@@ -59,16 +59,16 @@ const MainRoutes = () => {
       element: <CartPage />,
       id: 9,
     },
-    {
-      link: "/category",
-      element: <FilterProduct />,
-      id: 10,
-    },
-    {
-      link: "/search",
-      element: <ProductSearch />,
-      id: 11,
-    },
+    // {
+    //   link: "/category",
+    //   element: <FilterProduct />,
+    //   id: 10,
+    // },
+    // {
+    //   link: "/search",
+    //   element: <ProductSearch />,
+    //   id: 11,
+    // },
   ];
 
   return (
