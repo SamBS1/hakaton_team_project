@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
+import '../../styles/AddProduct.css'
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -32,8 +33,9 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
-      <h2>Add Product</h2>
+    <div className="div33">
+      <h1>Product adding</h1>
+    <div className="div22">
       <input type="text" placeholder="Title" name="name" onChange={handleInp} />
       <br />
       <input
@@ -60,15 +62,20 @@ const AddProduct = () => {
       <input type="text" placeholder="Type" name="type" onChange={handleInp} />
       <br />
 
+    </div>
+    <div className="btndiv">
+      
       <button
         onClick={() => {
           addProduct(product);
           navigate("/");
         }}
-      >
+        >
         Save
       </button>
-    </div>
+
+        </div>
+      </div>
   );
 };
 
