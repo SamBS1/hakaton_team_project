@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "name": "⚡️Мефедрон Мука ⚡️",
+      "description": "Хорошее качество за приемлемую цену! -Отличная мука. - Терпкий и эффективный. - Преимущественно белого цвета ,иногда с оттенком.",
+      "price": 123,
+      "picture": "https://hydraclub3x2cnoqvr5ck3zb5z3oe7nqo993y11.proxy2onion.com/resized/450x450/product_62b568ae3ce5a8cca1ac139055681c1c.jpg",
+      "type": "drug",
+      "id": 2
+    },
+    {
+      "name": "asd",
+      "description": "asd",
+      "price": null,
+      "picture": "asd",
+      "type": "asd",
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "description": "asda",
+      "price": null,
+      "picture": "asd",
+      "type": "drug",
+      "id": 9
+    },
+    {
+      "name": "Амфетамин Premium",
+      "description": "",
+      "price": 0.00038722,
+      "picture": "https://hydraclub3x2cnoqvr5ck3zb5z3oe7nqo993y11.proxy2onion.com/resized/450x450/product_7621879687058ebed37cb47f65b13e3c.jpg",
+      "type": "drug",
+      "id": 10
+    }
+  ]
+}
